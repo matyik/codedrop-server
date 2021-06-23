@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drops",
+  "info": {
+    "name": "drop",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 50
+    },
+    "code": {
+      "type": "text",
+      "required": true
+    },
+    "expiration": {
+      "type": "datetime"
+    },
+    "maxclicks": {
+      "type": "integer"
+    },
+    "clicks": {
+      "type": "integer",
+      "default": 0
+    },
+    "language": {
+      "type": "string",
+      "required": true,
+      "regex": "(ahk|asm|asp|awk|bat|cpp|cs|css|cxx|dpj|h|hpp|html|hxx|java|js|jsp|json|jsx|mk|mod|php|pl|pm|ps|py|sh|ts|vue|other)"
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "drops"
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}
