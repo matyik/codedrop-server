@@ -3,6 +3,7 @@ const { parseMultipartData, sanitizeEntity } = require('strapi-utils')
 module.exports = {
   async findOne(ctx) {
     const { slug } = ctx.params
+    console.log(slug)
     const drop = await strapi.services.drop.findOne({ slug })
     let entity
     if (!drop) return
@@ -19,7 +20,7 @@ module.exports = {
       )
     }
 
-    return sanitizeEntity(entity, { model: strapi.models.drop })
+    return sanitizeEntity(drop, { model: strapi.models.drop })
   },
 
   /**
